@@ -15,16 +15,21 @@
     ->strong password check
     ->disable "Create" button
 
-<p>After successfully passing all of the above we are redirected to the "Home" page. Now we have to login and easly explore the site in two different ways.</p>
+<p>After successfully passing all of the above we are redirected to the "Home" page. Now we have to login and easly explore
+    the site in two different ways.</p>
 
 <h3>As Client</h3>
 
-    If we register as client, we can make an apointment with lawyer of our choice. After clicking the "Make an appointment" button, we are redirected to the create page where we can freely choose a date and time for our appointment with the lawyer. If the hour of our appointment is already taken by somebody before us, we will be notified that we must select a different scope for the meeting. Once submited successfully it is passed to the chosen
-    lawyer as 'pending'.
+    If we register as client, we can make an apointment with lawyer of our choice. After clicking the "Make an appointment" button,
+    we are redirected to the create page where we can freely choose a date and time for our appointment with the lawyer. If the hour
+    of our appointment is already taken by somebody before us, we will be notified that we must select a different scope for the
+    meeting. Once submited successfully it is passed to the chosenlawyer as 'pending'.
 
 <h3>As Lawyer</h3>
 
-    If we register as lawyer, we are straight redirect to the page of our personal appointments.There we can manipulate the already made appoinments by the clients. We can Approve/Decline the existing appointments or even edit them if needed to. Also we check our schedule by clicking on calendar where all the approved meetings pop up.
+    If we register as lawyer, we are straight redirect to the page of our personal appointments.There we can manipulate the already
+    made appoinments by the clients. We can Approve/Decline the existing appointments or even edit them if needed to. Also we check 
+    our schedule by clicking on calendar where all the approved meetings pop up.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
