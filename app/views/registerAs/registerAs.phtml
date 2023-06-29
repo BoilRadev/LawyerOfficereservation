@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button {
+            display: inline-block;
+            width: 250px;
+            height: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 24px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .button:first-child {
+            background-color: rgba(25, 73, 190, 0.78);
+            color: white;
+        }
+
+        .button:last-child {
+            background-color:  rgba(25, 73, 190, 0.78);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1 class="text-center">Register As</h1>
+<p class="text-center">Please select your registration type:</p>
+<div class="button-container">
+    <a href="../clients/new" class="button">Client</a>
+    <a href="../lawyers/new" class="button">Lawyer</a>
+</div>
+</body>
+</html>

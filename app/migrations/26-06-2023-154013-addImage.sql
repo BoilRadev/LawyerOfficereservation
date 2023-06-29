@@ -1,0 +1,1 @@
+ALTER TABLE lawyers ADD column image longblob;

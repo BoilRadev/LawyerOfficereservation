@@ -1,0 +1,78 @@
+
+<hr>
+
+<h4 class="text-center">Welcome to our esteemed law firm, where our team of experienced attorneys is dedicated to
+    providing exceptional legal representation tailored to your unique needs. Trust in our expertise and let us
+    guide you through your legal journey with unwavering commitment and a relentless pursuit of justice</h4>
+
+<h1 class="page-header text-center">
+    Lawyers
+</h1>
+
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <form action="/DelaTask/index" method="get">
+            <label for="sort">Sort by Fee:</label>
+            <select name="sort" id="sort" onchange="this.form.submit()">
+                <option value="asc" <?php if (isset($_GET['sort']) && $_GET['sort'] === 'asc') echo 'selected'; ?>>Lowest to Highest</option>
+                <option value="desc" <?php if (isset($_GET['sort']) && $_GET['sort'] === 'desc') echo 'selected'; ?>>Highest to Lowest</option>
+            </select>
+        </form>
+    </div>
+</div>
+
+<?php
+$sort = isset($_GET['sort']) ? $_GET['sort'] : 'asc';
+if ($sort !== 'asc' && $sort !== 'desc') {
+    $sort = 'asc';
+}
+
+$lawyers = $page->items;
+
+usort($lawyers, function ($a, $b) use ($sort) {
+    if ($sort === 'asc') {
+        return $a->getFee() - $b->getFee();
+    } else {
+        return $b->getFee() - $a->getFee();
+    }
+});
+
+foreach ($lawyers as $lawyer):
+    ?>
+    <div style="display: flex;">
+        <div class="avtar">
+            <img class="img-responsive" height="200" width="100" src="data:image/jpeg;base64, <?php echo $lawyer->getImage() ?>">
+        </div>
+        <div style="margin-left: 20px;">
+            <h2><?php echo $lawyer->getFirstName() . " " . $lawyer->getLastName() ?></h2>
+            <hr>
+            <p><?php echo $lawyer->getEmail() ?></p>
+            <p><?php echo $lawyer->getAddress() ?></p>
+            <p><?php echo "Price: " . $lawyer->getFee() ?></p>
+        </div>
+    </div>
+    <div style="margin-left: auto;">
+        <a href="/DelaTask/review/new/<?php echo $lawyer->getId(); ?>" class="btn btn-lg btn-primary btn-block">Make an appointment</a>
+    </div>
+    <hr>
+<?php endforeach; ?>
+
+
+<div class="row">
+    <div class="col-sm-1 ">
+        <p class="pagination text-center" style="line-height: 1.42857;padding: 6px 12px;">
+            <?php echo $page->current, "/", $page->total_pages ?>
+        </p>
+    </div>
+    <div class="col-sm-11 text-center">
+        <nav>
+            <ul class="pagination">
+                <li><?php echo $this->tag->linkTo("index/index", "First") ?></li>
+                <li><?php echo $this->tag->linkTo("index/index?page=" . $page->before, "Previous") ?></li>
+                <li><?php echo $this->tag->linkTo("index/index?page=" . $page->next, "Next") ?></li>
+                <li><?php echo $this->tag->linkTo("index/index?page=" . $page->last, "Last") ?></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
